@@ -1,0 +1,6 @@
+jsonschema>=4.0
+pandas>=2.0
+plotly>=5.0
+pycountry>=24.6.1
+python-stdnum>=1.19
+

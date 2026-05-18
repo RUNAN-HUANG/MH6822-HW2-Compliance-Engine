@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MH6822 Compliance Dashboard</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172026;
+      --muted: #607080;
+      --line: #d6dde3;
+      --panel: #f4f7f8;
+      --accent: #0f766e;
+      --amber: #b7791f;
+      --rose: #b83232;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f6f8f8;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.45;
+    }
+    header {
+      padding: 30px 32px 20px;
+      border-bottom: 1px solid var(--line);
+      background: #ffffff;
+    }
+    main { padding: 24px 32px 40px; }
+    h1 { margin: 0 0 8px; font-size: 30px; }
+    h2 { margin: 0 0 14px; font-size: 20px; }
+    p { max-width: 980px; margin: 0 0 14px; }
+    section {
+      margin: 0 0 28px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .eyebrow {
+      margin-bottom: 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .source { color: var(--muted); font-size: 14px; }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+    }
+    .summary li {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .frontier-overview {
+      border-color: #9cc9c3;
+      background: #eef7f5;
+    }
+    .section-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .metric-card {
+      display: grid;
+      gap: 4px;
+      padding: 14px 16px;
+      border: 1px solid #b9d8d3;
+      border-radius: 8px;
+      background: #fff;
+    }
+    .metric-card span { color: var(--muted); font-weight: 700; }
+    .metric-card strong { font-size: 30px; line-height: 1; }
+    .scroll-table { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    thead th { background: var(--panel); }
+    .heatmap th:first-child { position: sticky; left: 0; background: #fff; }
+    .frontier-row th:first-child,
+    .frontier-row td {
+      box-shadow: inset 0 0 0 999px rgba(15, 118, 110, 0.07);
+    }
+    .heat-cell { color: #fff; font-weight: 700; text-align: center; min-width: 132px; }
+    .status-badge { display: inline-block; border-radius: 999px; padding: 3px 9px; font-size: 12px; font-weight: 700; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .legend-item i {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+    .bar-chart { display: grid; gap: 10px; }
+    .bar-row { display: grid; grid-template-columns: minmax(150px, 220px) 1fr 44px; gap: 12px; align-items: center; }
+    .bar-label { font-weight: 700; }
+    .bar-track, .rate-track { height: 14px; background: #e5edf7; border-radius: 999px; overflow: hidden; }
+    .bar-fill { height: 100%; background: var(--accent); }
+    .bar-value { text-align: right; font-weight: 700; }
+    .bar-trades {
+      grid-column: 2 / 4;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .rate-cell { display: grid; gap: 6px; min-width: 160px; }
+    .rate-fill { height: 100%; background: #2f7d4f; }
+    .asset-cell { display: grid; gap: 6px; min-width: 190px; }
+    .stack-track {
+      display: flex;
+      height: 16px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5edf7;
+    }
+    .stack-track span { display: block; min-width: 2px; }
+    .frontier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+    .frontier-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfd;
+    }
+    .frontier-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 12px;
+    }
+    .frontier-card h3 { margin: 0; font-size: 22px; }
+    .frontier-card p { margin: 2px 0 0; }
+    .source-tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #e7eef2;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .frontier-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 14px;
+    }
+    .frontier-fields div {
+      padding: 9px 10px;
+      border: 1px solid #e1e7eb;
+      border-radius: 6px;
+      background: #fff;
+    }
+    dt { color: var(--muted); font-size: 12px; font-weight: 700; }
+    dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+    .regime-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .regime-pill {
+      display: flex;
+      gap: 7px;
+      align-items: center;
+      padding: 5px 8px;
+      border: 1px solid #dde4e9;
+      border-radius: 999px;
+      background: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .frontier-note {
+      color: #344450;
+      font-size: 13px;
+    }
+    .rationale-list {
+      display: grid;
+      gap: 7px;
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: #344450;
+      font-size: 13px;
+    }
+    .interpretation {
+      border-left: 4px solid var(--accent);
+    }
+    small { color: var(--muted); }
+    @media (max-width: 720px) {
+      header, main { padding-left: 16px; padding-right: 16px; }
+      .bar-row { grid-template-columns: 1fr; gap: 4px; }
+      .bar-trades { grid-column: 1; }
+      .bar-value { text-align: left; }
+      .frontier-fields { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">MH6822 Homework 2</div>
+    <h1>Compliance and Classification Dashboard</h1>
+    <div class="source">Only data source: outputs\compliance_report.json</div>
+    <ul class="summary"><li><strong>NONCOMPLIANT</strong><span>51</span></li><li><strong>COMPLIANT</strong><span>7</span></li><li><strong>CONDITIONAL</strong><span>3</span></li><li><strong>NOT_APPLICABLE</strong><span>5</span></li></ul>
+  </header>
+  <main>
+    
+    <section class="frontier-overview">
+      <div class="section-kicker">Event-Contract Focus</div>
+      <h2>Classification Frontier for Event Contracts</h2>
+      <p>
+        This dashboard separates ordinary reporting errors from the harder
+        classification question: whether prediction and event contracts fit existing OTC
+        derivative reporting taxonomies. The four highlighted trades are analysed
+        directly from CFTC, EMIR results in the JSON report.
+        Source mix: provided: 28, additional: 5.
+      </p>
+      <div class="metric-grid">
+        <div class="metric-card">
+          <span>Trades Analysed</span>
+          <strong>33</strong>
+          <small>All loaded from the JSON report</small>
+        </div>
+        
+        <div class="metric-card">
+          <span>Regime Decisions</span>
+          <strong>66</strong>
+          <small>CFTC, EMIR</small>
+        </div>
+        
+        <div class="metric-card">
+          <span>Frontier Trades</span>
+          <strong>4</strong>
+          <small>T026-T028 and T033</small>
+        </div>
+        
+        <div class="metric-card">
+          <span>No DSB Taxonomy</span>
+          <strong>4</strong>
+          <small>No matched UPI template</small>
+        </div>
+        
+        <div class="metric-card">
+          <span>Conditional CFTC</span>
+          <strong>3</strong>
+          <small>Event-contract classification boundary</small>
+        </div>
+        
+        <div class="metric-card">
+          <span>Outside EMIR</span>
+          <strong>4</strong>
+          <small>Not treated as EMIR OTC derivatives here</small>
+        </div>
+        </div>
+    </section>
+    
+    
+    <section class="frontier-section">
+      <h2>Classification Frontier Panel</h2>
+      <div class="frontier-grid">
+            <article class="frontier-card">
+              <div class="frontier-card-head">
+                <div>
+                  <h3>T026</h3>
+                  <p>PoliticalOutcome</p>
+                </div>
+                <span class="source-tag">provided</span>
+              </div>
+              <dl class="frontier-fields">
+                <div><dt>Platform</dt><dd>Kalshi</dd></div>
+                <div><dt>Platform Type</dt><dd>CFTC_REGULATED_DCM</dd></div>
+                <div><dt>Notional</dt><dd>50,000 USD</dd></div>
+                <div><dt>UPI Template</dt><dd>No product definition</dd></div>
+                <div><dt>Classification Flag</dt><dd>NOVEL_INSTRUMENT_NO_TAXONOMY</dd></div>
+                <div><dt>UPI Status</dt><dd>NO_PRODUCT_DEFINITION</dd></div>
+              </dl>
+              <div class="regime-row">
+                <div class="regime-pill">
+                  <span>CFTC</span>
+                  <span class="status-badge" style="background:#fff4d6;color:#b7791f;">CONDITIONAL</span>
+                </div>
+                
+                <div class="regime-pill">
+                  <span>EMIR</span>
+                  <span class="status-badge" style="background:#edf0f5;color:#586174;">NOT_APPLICABLE</span>
+                </div>
+                </div>
+              <p class="frontier-note">Instrument type &#x27;BinaryEventContract&#x27; under asset class &#x27;EventContract&#x27; has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.</p>
+              <ul class="rationale-list">
+                <li>
+                  <strong>CFTC</strong>:
+                  Kalshi event contract on a CFTC-regulated DCM; reportability is conditional pending final event-contract classification.
+                </li>
+                
+                <li>
+                  <strong>EMIR</strong>:
+                  Event contracts are outside the current EMIR OTC derivative taxonomy for this project.
+                </li>
+                </ul>
+            </article>
+            
+            <article class="frontier-card">
+              <div class="frontier-card-head">
+                <div>
+                  <h3>T027</h3>
+                  <p>MacroeconomicOutcome</p>
+                </div>
+                <span class="source-tag">provided</span>
+              </div>
+              <dl class="frontier-fields">
+                <div><dt>Platform</dt><dd>Polymarket</dd></div>
+                <div><dt>Platform Type</dt><dd>DECENTRALISED_BLOCKCHAIN_PLATFORM</dd></div>
+                <div><dt>Notional</dt><dd>200,000 USDC</dd></div>
+                <div><dt>UPI Template</dt><dd>No product definition</dd></div>
+                <div><dt>Classification Flag</dt><dd>NOVEL_INSTRUMENT_NO_TAXONOMY</dd></div>
+                <div><dt>UPI Status</dt><dd>NO_PRODUCT_DEFINITION</dd></div>
+              </dl>
+              <div class="regime-row">
+                <div class="regime-pill">
+                  <span>CFTC</span>
+                  <span class="status-badge" style="background:#edf0f5;color:#586174;">NOT_APPLICABLE</span>
+                </div>
+                
+                <div class="regime-pill">
+                  <span>EMIR</span>
+                  <span class="status-badge" style="background:#edf0f5;color:#586174;">NOT_APPLICABLE</span>
+                </div>
+                </div>
+              <p class="frontier-note">Instrument type &#x27;BinaryEventContract&#x27; under asset class &#x27;EventContract&#x27; has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.</p>
+              <ul class="rationale-list">
+                <li>
+                  <strong>CFTC</strong>:
+                  Polymarket/offshore prediction-market trade is outside this CFTC reporting chain.
+                </li>
+                
+                <li>
+                  <strong>EMIR</strong>:
+                  Offshore prediction-market event contract is outside this EMIR reporting chain.
+                </li>
+                </ul>
+            </article>
+            
+            <article class="frontier-card">
+              <div class="frontier-card-head">
+                <div>
+                  <h3>T028</h3>
+                  <p>RegulatoryDecisionOutcome</p>
+                </div>
+                <span class="source-tag">provided</span>
+              </div>
+              <dl class="frontier-fields">
+                <div><dt>Platform</dt><dd>Kalshi</dd></div>
+                <div><dt>Platform Type</dt><dd>CFTC_REGULATED_DCM</dd></div>
+                <div><dt>Notional</dt><dd>100,000 USD</dd></div>
+                <div><dt>UPI Template</dt><dd>No product definition</dd></div>
+                <div><dt>Classification Flag</dt><dd>NOVEL_INSTRUMENT_NO_TAXONOMY</dd></div>
+                <div><dt>UPI Status</dt><dd>NO_PRODUCT_DEFINITION</dd></div>
+              </dl>
+              <div class="regime-row">
+                <div class="regime-pill">
+                  <span>CFTC</span>
+                  <span class="status-badge" style="background:#fff4d6;color:#b7791f;">CONDITIONAL</span>
+                </div>
+                
+                <div class="regime-pill">
+                  <span>EMIR</span>
+                  <span class="status-badge" style="background:#edf0f5;color:#586174;">NOT_APPLICABLE</span>
+                </div>
+                </div>
+              <p class="frontier-note">Instrument type &#x27;BinaryEventContract&#x27; under asset class &#x27;EventContract&#x27; has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.</p>
+              <ul class="rationale-list">
+                <li>
+                  <strong>CFTC</strong>:
+                  Regulatory-decision event contract has conditional CFTC treatment because product classification is unsettled.
+                </li>
+                
+                <li>
+                  <strong>EMIR</strong>:
+                  Regulatory-decision event contract has no current EMIR product classification.
+                </li>
+                </ul>
+            </article>
+            
+            <article class="frontier-card">
+              <div class="frontier-card-head">
+                <div>
+                  <h3>T033</h3>
+                  <p>MonetaryPolicyOutcome</p>
+                </div>
+                <span class="source-tag">additional</span>
+              </div>
+              <dl class="frontier-fields">
+                <div><dt>Platform</dt><dd>Kalshi</dd></div>
+                <div><dt>Platform Type</dt><dd>CFTC_REGULATED_DCM</dd></div>
+                <div><dt>Notional</dt><dd>100,000 USD</dd></div>
+                <div><dt>UPI Template</dt><dd>No product definition</dd></div>
+                <div><dt>Classification Flag</dt><dd>NOVEL_INSTRUMENT_NO_TAXONOMY</dd></div>
+                <div><dt>UPI Status</dt><dd>NO_PRODUCT_DEFINITION</dd></div>
+              </dl>
+              <div class="regime-row">
+                <div class="regime-pill">
+                  <span>CFTC</span>
+                  <span class="status-badge" style="background:#fff4d6;color:#b7791f;">CONDITIONAL</span>
+                </div>
+                
+                <div class="regime-pill">
+                  <span>EMIR</span>
+                  <span class="status-badge" style="background:#edf0f5;color:#586174;">NOT_APPLICABLE</span>
+                </div>
+                </div>
+              <p class="frontier-note">Instrument type &#x27;BinaryEventContract&#x27; under asset class &#x27;EventContract&#x27; has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.</p>
+              <ul class="rationale-list">
+                <li>
+                  <strong>CFTC</strong>:
+                  T033 is an event contract on Kalshi; CFTC treatment is conditional because the instrument is outside the current ANNA-DSB taxonomy.
+                </li>
+                
+                <li>
+                  <strong>EMIR</strong>:
+                  T033 is an event contract outside the current EMIR OTC derivative taxonomy for this project.
+                </li>
+                </ul>
+            </article>
+            </div>
+    </section>
+    
+    
+    <section>
+      <h2>Portfolio Compliance Heatmap</h2>
+      <div class="legend">
+        <span class="legend-item">
+          <i style="background:#2f7d4f"></i>
+          COMPLIANT
+        </span>
+        
+        <span class="legend-item">
+          <i style="background:#b83232"></i>
+          NONCOMPLIANT
+        </span>
+        
+        <span class="legend-item">
+          <i style="background:#b7791f"></i>
+          CONDITIONAL
+        </span>
+        
+        <span class="legend-item">
+          <i style="background:#586174"></i>
+          NOT_APPLICABLE
+        </span>
+        </div>
+      <div class="scroll-table">
+        <table class="heatmap">
+          <thead>
+            <tr><th>Trade</th><th>Asset Class</th><th>CFTC</th><th>EMIR</th></tr>
+          </thead>
+          <tbody>
+            <tr><th>T001</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T002</th><td>Credit</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T003</th><td>FX</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T004</th><td>Equity</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T005</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T006</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T007</th><td>Commodities</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T008</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T009</th><td>FX</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T010</th><td>Credit</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T011</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T012</th><td>Equity</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T013</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T014</th><td>FX</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T015</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T016</th><td>Equity</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T017</th><td>Credit</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T018</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T019</th><td>Commodities</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T020</th><td>FX</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T021</th><td>Rates</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T022</th><td>Credit</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T023</th><td>Equity</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T024</th><td>Rates</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T025</th><td>FX</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr class="frontier-row"><th>T026</th><td>EventContract</td><td class="heat-cell" style="background:#b7791f;">CONDITIONAL</td><td class="heat-cell" style="background:#586174;">NOT_APPLICABLE</td></tr><tr class="frontier-row"><th>T027</th><td>EventContract</td><td class="heat-cell" style="background:#586174;">NOT_APPLICABLE</td><td class="heat-cell" style="background:#586174;">NOT_APPLICABLE</td></tr><tr class="frontier-row"><th>T028</th><td>EventContract</td><td class="heat-cell" style="background:#b7791f;">CONDITIONAL</td><td class="heat-cell" style="background:#586174;">NOT_APPLICABLE</td></tr><tr><th>T029</th><td>Rates</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td></tr><tr><th>T030</th><td>Equity</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T031</th><td>Commodities</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td><td class="heat-cell" style="background:#b83232;">NONCOMPLIANT</td></tr><tr><th>T032</th><td>FX</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td><td class="heat-cell" style="background:#2f7d4f;">COMPLIANT</td></tr><tr class="frontier-row"><th>T033</th><td>EventContract</td><td class="heat-cell" style="background:#b7791f;">CONDITIONAL</td><td class="heat-cell" style="background:#586174;">NOT_APPLICABLE</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    
+    <section>
+      <h2>Error Frequency</h2>
+      <div class="bar-chart">
+            <div class="bar-row">
+              <div class="bar-label">other_counterparty_lei</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:100%"></div>
+              </div>
+              <div class="bar-value">26</div>
+              <div class="bar-trades">Affected trades: T001, T002, T003, T004, T009, T010, T011, T014, T018, T020 +3 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">reporting_counterparty_lei</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:85%"></div>
+              </div>
+              <div class="bar-value">22</div>
+              <div class="bar-trades">Affected trades: T005, T006, T007, T008, T012, T014, T015, T016, T019, T020 +1 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">LEI</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:85%"></div>
+              </div>
+              <div class="bar-value">22</div>
+              <div class="bar-trades">Affected trades: T005, T007, T008, T012, T014, T015, T016, T019, T020, T022 +1 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">collateral_portfolio_code</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:54%"></div>
+              </div>
+              <div class="bar-value">14</div>
+              <div class="bar-trades">Affected trades: T003, T004, T006, T007, T009, T014, T016, T017, T019, T020 +4 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">initial_margin_posted</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:54%"></div>
+              </div>
+              <div class="bar-value">14</div>
+              <div class="bar-trades">Affected trades: T003, T004, T006, T007, T009, T014, T016, T017, T019, T020 +4 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">variation_margin_posted</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:54%"></div>
+              </div>
+              <div class="bar-value">14</div>
+              <div class="bar-trades">Affected trades: T003, T004, T006, T007, T009, T014, T016, T017, T019, T020 +4 more</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">reference_rate</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:35%"></div>
+              </div>
+              <div class="bar-value">9</div>
+              <div class="bar-trades">Affected trades: T005, T013, T018</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">uti</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:15%"></div>
+              </div>
+              <div class="bar-value">4</div>
+              <div class="bar-trades">Affected trades: T006</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">reference_rate_leg2</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:12%"></div>
+              </div>
+              <div class="bar-value">3</div>
+              <div class="bar-trades">Affected trades: T006</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">notional_currency</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:12%"></div>
+              </div>
+              <div class="bar-value">3</div>
+              <div class="bar-trades">Affected trades: T009</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">execution_timestamp</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:12%"></div>
+              </div>
+              <div class="bar-value">3</div>
+              <div class="bar-trades">Affected trades: T013</div>
+            </div>
+            
+            <div class="bar-row">
+              <div class="bar-label">maturity_date</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:12%"></div>
+              </div>
+              <div class="bar-value">3</div>
+              <div class="bar-trades">Affected trades: T021</div>
+            </div>
+            </div>
+    </section>
+    
+    
+    <section>
+      <h2>Asset Class Breakdown</h2>
+      <table>
+        <thead><tr><th>Asset Class</th><th>CFTC</th><th>EMIR</th></tr></thead>
+        <tbody><tr><th>Commodities</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:33.33%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 1"
+                ></span>
+                
+                <span
+                  style="width:66.67%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 2"
+                ></span>
+                </div>
+                    <strong>33% compliant</strong>
+                    <small>COMPLIANT: 1, NONCOMPLIANT: 2</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:100.00%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 3"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>NONCOMPLIANT: 3</small>
+                  </div>
+                </td>
+                </tr><tr><th>Credit</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:25.00%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 1"
+                ></span>
+                
+                <span
+                  style="width:75.00%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 3"
+                ></span>
+                </div>
+                    <strong>25% compliant</strong>
+                    <small>COMPLIANT: 1, NONCOMPLIANT: 3</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:100.00%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 4"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>NONCOMPLIANT: 4</small>
+                  </div>
+                </td>
+                </tr><tr><th>Equity</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:100.00%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 5"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>NONCOMPLIANT: 5</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:100.00%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 5"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>NONCOMPLIANT: 5</small>
+                  </div>
+                </td>
+                </tr><tr><th>EventContract</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:75.00%;
+                         background:#b7791f;"
+                  title="CONDITIONAL: 3"
+                ></span>
+                
+                <span
+                  style="width:25.00%;
+                         background:#586174;"
+                  title="NOT_APPLICABLE: 1"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>CONDITIONAL: 3, NOT_APPLICABLE: 1</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:100.00%;
+                         background:#586174;"
+                  title="NOT_APPLICABLE: 4"
+                ></span>
+                </div>
+                    <strong>0% compliant</strong>
+                    <small>NOT_APPLICABLE: 4</small>
+                  </div>
+                </td>
+                </tr><tr><th>FX</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:16.67%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 1"
+                ></span>
+                
+                <span
+                  style="width:83.33%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 5"
+                ></span>
+                </div>
+                    <strong>17% compliant</strong>
+                    <small>COMPLIANT: 1, NONCOMPLIANT: 5</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:16.67%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 1"
+                ></span>
+                
+                <span
+                  style="width:83.33%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 5"
+                ></span>
+                </div>
+                    <strong>17% compliant</strong>
+                    <small>COMPLIANT: 1, NONCOMPLIANT: 5</small>
+                  </div>
+                </td>
+                </tr><tr><th>Rates</th>
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:18.18%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 2"
+                ></span>
+                
+                <span
+                  style="width:81.82%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 9"
+                ></span>
+                </div>
+                    <strong>18% compliant</strong>
+                    <small>COMPLIANT: 2, NONCOMPLIANT: 9</small>
+                  </div>
+                </td>
+                
+                <td>
+                  <div class="asset-cell">
+                    <div class="stack-track">
+                <span
+                  style="width:9.09%;
+                         background:#2f7d4f;"
+                  title="COMPLIANT: 1"
+                ></span>
+                
+                <span
+                  style="width:90.91%;
+                         background:#b83232;"
+                  title="NONCOMPLIANT: 10"
+                ></span>
+                </div>
+                    <strong>9% compliant</strong>
+                    <small>COMPLIANT: 1, NONCOMPLIANT: 10</small>
+                  </div>
+                </td>
+                </tr></tbody>
+      </table>
+    </section>
+    
+    
+    <section class="interpretation">
+      <h2>Interpretation</h2>
+      <p>
+        The dashboard is generated from a single source file,
+        <strong>outputs/compliance_report.json</strong>, which contains 33
+        trades and 66 regime-level decisions across
+        CFTC, EMIR. The portfolio heatmap shows a strongly
+        exception-heavy reporting book: 51 regime outcomes are
+        non-compliant, compared with 7 compliant outcomes,
+        3 conditional outcomes, and 5
+        not-applicable outcomes. This matters because the failures are not confined
+        to one isolated trade; non-compliant trades include
+        T001, T002, T003, T004, T005, T006, T007, T008, T009, T010, T011, T012, T013, T014, T015, T016, T017, T018 and others, indicating a portfolio-level control
+        problem rather than a single booking mistake.
+      </p>
+      <p>
+        The error-frequency chart narrows the operational problem to repeatable
+        data-quality checks. The most frequent message groups are
+        other_counterparty_lei (26), reporting_counterparty_lei (22), LEI (22), collateral_portfolio_code (14). These are exactly the types of fields
+        that a pre-submission validation layer should catch: counterparty LEI
+        format and checksum controls, mandatory collateral and margin fields, UTI
+        consistency, and reference-rate hygiene. In other words, the dashboard does
+        not merely count failed trades; it points to the specific controls that
+        would reduce the greatest number of reporting breaks.
+      </p>
+      <p>
+        The asset-class breakdown gives useful context for the classification question.
+        The source data covers Rates: 11, FX: 6, Equity: 5, Credit: 4, EventContract: 4, Commodities: 3, so the event-contract
+        trades are being compared against a mixed OTC derivative portfolio rather
+        than viewed in isolation. Conventional asset classes mainly fail because
+        required reporting fields or identifiers are invalid. By contrast, the
+        event-contract records fail to map into an ANNA-DSB UPI product definition,
+        which makes their issue a classification boundary problem rather than an
+        ordinary completeness problem. The classification frontier panel therefore
+        deserves separate treatment: the highlighted trades are
+        T026 (PoliticalOutcome), T027 (MacroeconomicOutcome), T028 (RegulatoryDecisionOutcome), T033 (MonetaryPolicyOutcome), executed on
+        Kalshi, Polymarket.
+        The regime outcome count is CONDITIONAL: 3, NOT_APPLICABLE: 5. Kalshi-style
+        regulated event contracts are treated as conditional under the CFTC logic,
+        while Polymarket/offshore or EMIR-facing event contracts are outside the
+        reporting chain used in this project. The additional test set still includes
+        clean controls (T029, T032)
+        and designed data exceptions
+        (T030, T031, T033), so the dashboard
+        separates three concepts that should not be mixed: valid trades, data
+        reporting failures, and true taxonomy gaps.
+      </p>
+    </section>
+    
+  </main>
+</body>
+</html>

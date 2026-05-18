@@ -1,0 +1,1903 @@
+[
+  {
+    "trade_id": "T001",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Fixed_Float",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "uti": "5493001KJTIIGC8Y1R1220241219TRD00001",
+      "upi": null,
+      "execution_timestamp": "2024-12-19T09:35:00Z",
+      "effective_date": "2024-12-21",
+      "maturity_date": "2029-12-21",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 50000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T002",
+    "source": "provided",
+    "asset_class": "Credit",
+    "instrument_type": "Swap",
+    "use_case": "Corporate",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Credit.Swap.Corporate",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "uti": "VGRQXHF3J8VDLUA7XE9220250115CDS0001",
+      "upi": null,
+      "execution_timestamp": "2025-01-15T14:22:00Z",
+      "effective_date": "2025-01-17",
+      "maturity_date": "2030-01-17",
+      "settlement_date": null,
+      "notional_currency": "EUR",
+      "notional_amount": 10000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T003",
+    "source": "provided",
+    "asset_class": "FX",
+    "instrument_type": "Forward",
+    "use_case": "NDF",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Forward.NDF",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "other_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "uti": "1VUV7VQFKUOQSJ21A20820250210FWD0001",
+      "upi": null,
+      "execution_timestamp": "2025-02-10T11:00:00Z",
+      "effective_date": "2025-02-12",
+      "maturity_date": "2025-08-12",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 20000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T004",
+    "source": "provided",
+    "asset_class": "Equity",
+    "instrument_type": "Option",
+    "use_case": "SingleName_Put",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Equity.Option.Single_Name",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "MISSING_LEI",
+      "uti": "5493001KJTIIGC8Y1R1220250301EQ00001",
+      "upi": null,
+      "execution_timestamp": "2025-03-01T15:30:00Z",
+      "effective_date": "2025-03-03",
+      "maturity_date": "2025-09-19",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 5000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei must be 20 uppercase alphanumeric characters ending with two check digits"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei must be 20 uppercase alphanumeric characters ending with two check digits",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T005",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Fixed_Float",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [
+      "reference_rate='GBP-LIBOR-BBA' contains LIBOR; treated as legacy warning, not a hard error"
+    ],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "other_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "uti": "2138002TXD6KSZ3V5X2720250115IRS0001",
+      "upi": null,
+      "execution_timestamp": "2025-01-15T09:00:00Z",
+      "effective_date": "2025-01-17",
+      "maturity_date": "2035-01-17",
+      "settlement_date": null,
+      "notional_currency": "GBP",
+      "notional_amount": 75000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [
+          "reference_rate='GBP-LIBOR-BBA' contains LIBOR; treated as legacy warning, not a hard error"
+        ],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [
+          "reference_rate='GBP-LIBOR-BBA' contains LIBOR; treated as legacy warning, not a hard error"
+        ],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T006",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Basis",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Basis",
+    "upi_status": "INVALID_ATTRIBUTES",
+    "upi_code": null,
+    "upi_errors": [
+      "reference_rate_leg2='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+    ],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "other_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "uti": null,
+      "upi": null,
+      "execution_timestamp": "2025-04-01T10:15:00Z",
+      "effective_date": "2025-04-03",
+      "maturity_date": "2030-04-03",
+      "settlement_date": null,
+      "notional_currency": "EUR",
+      "notional_amount": 100000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti is missing",
+          "missing required field: uti",
+          "reference_rate_leg2='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+        ],
+        "warnings": [],
+        "notes": [
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti is missing",
+          "missing required field: uti",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted",
+          "reference_rate_leg2='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+        ],
+        "warnings": [],
+        "notes": [
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T007",
+    "source": "provided",
+    "asset_class": "Commodities",
+    "instrument_type": "Swap",
+    "use_case": "SingleName",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Commodities.Swap.Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "other_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "uti": "4R3ZURLYISNNNMHMK60820250506COM0001",
+      "upi": null,
+      "execution_timestamp": "2025-05-06T13:45:00Z",
+      "effective_date": "2025-05-08",
+      "maturity_date": "2026-05-08",
+      "settlement_date": null,
+      "notional_currency": "XAU",
+      "notional_amount": 5000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T008",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Option",
+    "use_case": "Swaption",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Option.Swaption",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "other_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "uti": "2138002TXD6KSZ3V5X2720250301SWN0001",
+      "upi": null,
+      "execution_timestamp": "2025-03-01T08:00:00Z",
+      "effective_date": "2025-03-03",
+      "maturity_date": "2025-09-01",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 200000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T009",
+    "source": "provided",
+    "asset_class": "FX",
+    "instrument_type": "Option",
+    "use_case": "Vanilla",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Option.Vanilla_Option",
+    "upi_status": "INVALID_ATTRIBUTES",
+    "upi_code": null,
+    "upi_errors": [
+      "notional_currency='INVALID_CCY' is not in codeset ISOCurrencyCode"
+    ],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "other_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "uti": "1VUV7VQFKUOQSJ21A20820251010FXO0001",
+      "upi": null,
+      "execution_timestamp": "2025-10-10T12:00:00Z",
+      "effective_date": "2025-10-14",
+      "maturity_date": "2026-01-14",
+      "settlement_date": null,
+      "notional_currency": "INVALID_CCY",
+      "notional_amount": 25000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "notional_currency='INVALID_CCY' is not in codeset ISOCurrencyCode"
+        ],
+        "warnings": [],
+        "notes": [
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted",
+          "notional_currency='INVALID_CCY' is not in codeset ISOCurrencyCode"
+        ],
+        "warnings": [],
+        "notes": [
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T010",
+    "source": "provided",
+    "asset_class": "Credit",
+    "instrument_type": "Swap",
+    "use_case": "Index",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Credit.Swap.Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "other_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "uti": "5299000J2N45DDNE4Y2820250115CDX0001",
+      "upi": null,
+      "execution_timestamp": "2025-01-15T16:00:00Z",
+      "effective_date": "2025-01-20",
+      "maturity_date": "2030-12-20",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 30000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T011",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "CrossCurrency",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Cross_Currency_Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "uti": "VGRQXHF3J8VDLUA7XE9220250601XCS0001",
+      "upi": null,
+      "execution_timestamp": "2025-06-01T09:30:00Z",
+      "effective_date": "2025-06-05",
+      "maturity_date": "2028-06-05",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 100000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T012",
+    "source": "provided",
+    "asset_class": "Equity",
+    "instrument_type": "Swap",
+    "use_case": "TotalReturn_SingleIndex",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Equity.Swap.Total_Return_Swap_Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "other_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "uti": "9695009AXSRNHZE85Y2020250715TRS0001",
+      "upi": null,
+      "execution_timestamp": "2025-07-15T10:00:00Z",
+      "effective_date": "2025-07-17",
+      "maturity_date": "2026-07-17",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 50000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T013",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Inflation",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "PARTIAL",
+    "parse_errors": [
+      "execution_timestamp must be ISO 8601 UTC, e.g. 2025-01-01T09:00:00Z"
+    ],
+    "matched_template": "Rates.Swap.Inflation_Swap",
+    "upi_status": "INVALID_ATTRIBUTES",
+    "upi_code": null,
+    "upi_errors": [
+      "reference_rate='GBP-RPI' is not in codeset FpmlRatesInflationRate"
+    ],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "1VUV7VQFKUOQSJ21A20820250901INF0001",
+      "upi": null,
+      "execution_timestamp": "2025-09-01",
+      "effective_date": "2025-09-03",
+      "maturity_date": "2035-09-03",
+      "settlement_date": null,
+      "notional_currency": "GBP",
+      "notional_amount": 25000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reference_rate='GBP-RPI' is not in codeset FpmlRatesInflationRate"
+        ],
+        "warnings": [
+          "M1 parse issue: execution_timestamp must be ISO 8601 UTC, e.g. 2025-01-01T09:00:00Z"
+        ],
+        "notes": [
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reference_rate='GBP-RPI' is not in codeset FpmlRatesInflationRate"
+        ],
+        "warnings": [
+          "M1 parse issue: execution_timestamp must be ISO 8601 UTC, e.g. 2025-01-01T09:00:00Z"
+        ],
+        "notes": [
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T014",
+    "source": "provided",
+    "asset_class": "FX",
+    "instrument_type": "Swap",
+    "use_case": "Standard",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Swap.FX_Swap",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "other_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "uti": "4R3ZURLYISNNNMHMK60820251120FXS0001",
+      "upi": null,
+      "execution_timestamp": "2025-11-20T14:00:00Z",
+      "effective_date": "2025-11-22",
+      "maturity_date": "2026-02-22",
+      "settlement_date": null,
+      "notional_currency": "AUD",
+      "notional_amount": 40000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T015",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Cap_Floor",
+    "use_case": "Cap",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Option.CapFloor",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "other_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "uti": "2138002TXD6KSZ3V5X2720250801CAP0001",
+      "upi": null,
+      "execution_timestamp": "2025-08-01T11:30:00Z",
+      "effective_date": "2025-08-05",
+      "maturity_date": "2028-08-05",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 150000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T016",
+    "source": "provided",
+    "asset_class": "Equity",
+    "instrument_type": "Swap",
+    "use_case": "Variance",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Equity.Swap.Parameter_Return_Variance_Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "other_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "uti": "9695009AXSRNHZE85Y202025091VARSWP01",
+      "upi": null,
+      "execution_timestamp": "2025-09-15T13:00:00Z",
+      "effective_date": "2025-09-17",
+      "maturity_date": "2026-03-17",
+      "settlement_date": null,
+      "notional_currency": "EUR",
+      "notional_amount": 15000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T017",
+    "source": "provided",
+    "asset_class": "Credit",
+    "instrument_type": "Swap",
+    "use_case": "Sovereign",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Credit.Swap.Sovereign",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "5493001KJTIIGC8Y1R1220251105SOV0001",
+      "upi": null,
+      "execution_timestamp": "2025-11-05T09:15:00Z",
+      "effective_date": "2025-11-07",
+      "maturity_date": "2030-11-07",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 20000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T018",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "OIS",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Fixed_Float_OIS",
+    "upi_status": "INVALID_ATTRIBUTES",
+    "upi_code": null,
+    "upi_errors": [
+      "reference_rate='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+    ],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "uti": "VGRQXHF3J8VDLUA7XE9220251201OIS0001",
+      "upi": null,
+      "execution_timestamp": "2025-12-01T08:45:00Z",
+      "effective_date": "2025-12-03",
+      "maturity_date": "2026-06-03",
+      "settlement_date": null,
+      "notional_currency": "EUR",
+      "notional_amount": 500000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "reference_rate='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+        ],
+        "warnings": [],
+        "notes": [
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "reference_rate='EUR-ESTR' is not in codeset FpmlRatesReferenceRate"
+        ],
+        "warnings": [],
+        "notes": [
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T019",
+    "source": "provided",
+    "asset_class": "Commodities",
+    "instrument_type": "Option",
+    "use_case": "SingleName",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Commodities.Option.Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "other_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "uti": "4R3ZURLYISNNNMHMK60820260115OPT0001",
+      "upi": null,
+      "execution_timestamp": "2026-01-15T10:00:00Z",
+      "effective_date": "2026-01-17",
+      "maturity_date": "2026-07-17",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 10000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T020",
+    "source": "provided",
+    "asset_class": "FX",
+    "instrument_type": "Option",
+    "use_case": "Barrier",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Option.Barrier_Option",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "other_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "uti": "2138002TXD6KSZ3V5X2720260210BRR0001",
+      "upi": null,
+      "execution_timestamp": "2026-02-10T15:00:00Z",
+      "effective_date": "2026-02-12",
+      "maturity_date": "2026-08-12",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 30000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T021",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Fixed_Float",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "PARTIAL",
+    "parse_errors": [
+      "maturity_date must be a valid YYYY-MM-DD date"
+    ],
+    "matched_template": "Rates.Swap.Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "uti": "5493001KJTIIGC8Y1R12202603010001",
+      "upi": null,
+      "execution_timestamp": "2026-03-01T09:00:00Z",
+      "effective_date": "2026-03-05",
+      "maturity_date": "9999-99-99",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 100000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [
+          "M1 parse issue: maturity_date must be a valid YYYY-MM-DD date"
+        ],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [
+          "M1 parse issue: maturity_date must be a valid YYYY-MM-DD date"
+        ],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T022",
+    "source": "provided",
+    "asset_class": "Credit",
+    "instrument_type": "Swap",
+    "use_case": "ABS",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Credit.Swap.ABS",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "other_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "uti": "9695009AXSRNHZE85Y2020260415ABS0001",
+      "upi": null,
+      "execution_timestamp": "2026-04-15T11:00:00Z",
+      "effective_date": "2026-04-17",
+      "maturity_date": "2031-04-17",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 15000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "reporting_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "uti namespace LEI failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T023",
+    "source": "provided",
+    "asset_class": "Equity",
+    "instrument_type": "Forward",
+    "use_case": "SingleName",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Equity.Forward.Price_Return_Basic_Performance_Single_Name",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "other_counterparty_lei": "2138002TXD6KSZ3V5X27",
+      "uti": "1VUV7VQFKUOQSJ21A20820260501EQF0001",
+      "upi": null,
+      "execution_timestamp": "2026-05-01T10:30:00Z",
+      "effective_date": "2026-05-05",
+      "maturity_date": "2026-11-05",
+      "settlement_date": null,
+      "notional_currency": "SGD",
+      "notional_amount": 8000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T024",
+    "source": "provided",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Fixed_Float",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "other_counterparty_lei": "4R3ZURLYISNNNMHMK608",
+      "uti": "5299000J2N45DDNE4Y2820260601IRS9999",
+      "upi": null,
+      "execution_timestamp": "2026-06-01T14:00:00Z",
+      "effective_date": "2026-06-03",
+      "maturity_date": "2036-06-03",
+      "settlement_date": null,
+      "notional_currency": "CAD",
+      "notional_amount": 60000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T025",
+    "source": "provided",
+    "asset_class": "FX",
+    "instrument_type": "Forward",
+    "use_case": "Deliverable",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Forward.Forward",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "uti": "VGRQXHF3J8VDLUA7XE9220260701FXF0001",
+      "upi": null,
+      "execution_timestamp": "2026-07-01T16:00:00Z",
+      "effective_date": "2026-07-03",
+      "maturity_date": "2026-10-03",
+      "settlement_date": null,
+      "notional_currency": "EUR",
+      "notional_amount": 45000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "other_counterparty_lei failed ISO 7064 MOD 97-10 checksum",
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T026",
+    "source": "provided",
+    "asset_class": "EventContract",
+    "instrument_type": "BinaryEventContract",
+    "use_case": "PoliticalOutcome",
+    "classification_flag": "NOVEL_INSTRUMENT_NO_TAXONOMY",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": null,
+    "upi_status": "NO_PRODUCT_DEFINITION",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": "Instrument type 'BinaryEventContract' under asset class 'EventContract' has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.",
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": null,
+      "uti": "5493001KJTIIGC8Y1R1220260301EVT00001",
+      "upi": null,
+      "execution_timestamp": "2026-03-01T14:00:00Z",
+      "effective_date": null,
+      "maturity_date": null,
+      "settlement_date": "2026-04-01",
+      "notional_currency": "USD",
+      "notional_amount": 50000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "Kalshi",
+      "platform_type": "CFTC_REGULATED_DCM"
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "CONDITIONAL",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Kalshi event contract on a CFTC-regulated DCM; reportability is conditional pending final event-contract classification."
+        ]
+      },
+      "EMIR": {
+        "status": "NOT_APPLICABLE",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Event contracts are outside the current EMIR OTC derivative taxonomy for this project."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T027",
+    "source": "provided",
+    "asset_class": "EventContract",
+    "instrument_type": "BinaryEventContract",
+    "use_case": "MacroeconomicOutcome",
+    "classification_flag": "NOVEL_INSTRUMENT_NO_TAXONOMY",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": null,
+    "upi_status": "NO_PRODUCT_DEFINITION",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": "Instrument type 'BinaryEventContract' under asset class 'EventContract' has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.",
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": null,
+      "uti": null,
+      "upi": null,
+      "execution_timestamp": "2026-02-15T11:30:00Z",
+      "effective_date": null,
+      "maturity_date": null,
+      "settlement_date": "2026-10-30",
+      "notional_currency": "USDC",
+      "notional_amount": 200000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "Polymarket",
+      "platform_type": "DECENTRALISED_BLOCKCHAIN_PLATFORM"
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NOT_APPLICABLE",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Polymarket/offshore prediction-market trade is outside this CFTC reporting chain."
+        ]
+      },
+      "EMIR": {
+        "status": "NOT_APPLICABLE",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Offshore prediction-market event contract is outside this EMIR reporting chain."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T028",
+    "source": "provided",
+    "asset_class": "EventContract",
+    "instrument_type": "BinaryEventContract",
+    "use_case": "RegulatoryDecisionOutcome",
+    "classification_flag": "NOVEL_INSTRUMENT_NO_TAXONOMY",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": null,
+    "upi_status": "NO_PRODUCT_DEFINITION",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": "Instrument type 'BinaryEventContract' under asset class 'EventContract' has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.",
+    "classified_fields": {
+      "reporting_counterparty_lei": "9695009AXSRNHZE85Y20",
+      "other_counterparty_lei": null,
+      "uti": "9695009AXSRNHZE85Y2020260115REG0001",
+      "upi": null,
+      "execution_timestamp": "2026-01-15T10:00:00Z",
+      "effective_date": null,
+      "maturity_date": null,
+      "settlement_date": "2027-01-15",
+      "notional_currency": "USD",
+      "notional_amount": 100000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "Kalshi",
+      "platform_type": "CFTC_REGULATED_DCM"
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "CONDITIONAL",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Regulatory-decision event contract has conditional CFTC treatment because product classification is unsettled."
+        ]
+      },
+      "EMIR": {
+        "status": "NOT_APPLICABLE",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "Regulatory-decision event contract has no current EMIR product classification."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T029",
+    "source": "additional",
+    "asset_class": "Rates",
+    "instrument_type": "Swap",
+    "use_case": "Fixed_Float",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Rates.Swap.Fixed_Float",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "5493001KJTIIGC8Y1R1220260101LDI0001",
+      "upi": null,
+      "execution_timestamp": "2026-01-01T09:00:00Z",
+      "effective_date": "2026-01-03",
+      "maturity_date": "2056-01-03",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 250000000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "SEF",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T030",
+    "source": "additional",
+    "asset_class": "Equity",
+    "instrument_type": "Swap",
+    "use_case": "TotalReturn_SingleIndex",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Equity.Swap.Total_Return_Swap_Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "5493001KJTIIGC8Y1R1220260201TRS0001",
+      "upi": null,
+      "execution_timestamp": "2026-02-01T10:30:00Z",
+      "effective_date": "2026-02-03",
+      "maturity_date": "2027-02-03",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 150000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "uti namespace LEI must match reporting_counterparty_lei"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "uti namespace LEI must match reporting_counterparty_lei"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T031",
+    "source": "additional",
+    "asset_class": "Commodities",
+    "instrument_type": "Swap",
+    "use_case": "SingleName",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "Commodities.Swap.Single_Index",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "VGRQXHF3J8VDLUA7XE92",
+      "uti": "5493001KJTIIGC8Y1R1220260308NICKEL01",
+      "upi": null,
+      "execution_timestamp": "2026-03-08T08:45:00Z",
+      "effective_date": "2026-03-10",
+      "maturity_date": "2027-03-10",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 75000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "NONCOMPLIANT",
+        "errors": [
+          "missing EMIR required field: collateral_portfolio_code",
+          "missing EMIR required field: initial_margin_posted",
+          "missing EMIR required field: variation_margin_posted"
+        ],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T032",
+    "source": "additional",
+    "asset_class": "FX",
+    "instrument_type": "Swap",
+    "use_case": "Standard",
+    "classification_flag": "CONVENTIONAL_DERIVATIVE",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": "FX.Swap.FX_Swap",
+    "upi_status": "FOUND",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": null,
+    "classified_fields": {
+      "reporting_counterparty_lei": "1VUV7VQFKUOQSJ21A208",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "1VUV7VQFKUOQSJ21A20820260415FXS0001",
+      "upi": null,
+      "execution_timestamp": "2026-04-15T12:00:00Z",
+      "effective_date": "2026-04-17",
+      "maturity_date": "2026-05-17",
+      "settlement_date": null,
+      "notional_currency": "USD",
+      "notional_amount": 50000000,
+      "cleared": false,
+      "action_type": "NEW",
+      "platform": "VOICE",
+      "platform_type": null
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "CFTC checks applied to a conventional OTC derivative."
+        ]
+      },
+      "EMIR": {
+        "status": "COMPLIANT",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "ANNA-DSB product definition template matched; no live UPI code was supplied in the trade.",
+          "EMIR checks applied to a conventional OTC derivative."
+        ]
+      }
+    }
+  },
+  {
+    "trade_id": "T033",
+    "source": "additional",
+    "asset_class": "EventContract",
+    "instrument_type": "BinaryEventContract",
+    "use_case": "MonetaryPolicyOutcome",
+    "classification_flag": "NOVEL_INSTRUMENT_NO_TAXONOMY",
+    "parse_status": "SUCCESS",
+    "parse_errors": [],
+    "matched_template": null,
+    "upi_status": "NO_PRODUCT_DEFINITION",
+    "upi_code": null,
+    "upi_errors": [],
+    "upi_warnings": [],
+    "classification_note": "Instrument type 'BinaryEventContract' under asset class 'EventContract' has no product definition in the ANNA-DSB UPI library. This reflects the current regulatory classification of prediction and event contracts as outside the OTC derivatives taxonomy in most jurisdictions. Refer to Module 4 for classification analysis.",
+    "classified_fields": {
+      "reporting_counterparty_lei": "5493001KJTIIGC8Y1R12",
+      "other_counterparty_lei": "5299000J2N45DDNE4Y28",
+      "uti": "5493001KJTIIGC8Y1R1220260430FOMC001",
+      "upi": null,
+      "execution_timestamp": "2026-04-30T14:00:00Z",
+      "effective_date": null,
+      "maturity_date": null,
+      "settlement_date": "2026-06-30",
+      "notional_currency": "USD",
+      "notional_amount": 100000,
+      "cleared": true,
+      "action_type": "NEW",
+      "platform": "Kalshi",
+      "platform_type": "CFTC_REGULATED_DCM"
+    },
+    "regime_results": {
+      "CFTC": {
+        "status": "CONDITIONAL",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "T033 is an event contract on Kalshi; CFTC treatment is conditional because the instrument is outside the current ANNA-DSB taxonomy."
+        ]
+      },
+      "EMIR": {
+        "status": "NOT_APPLICABLE",
+        "errors": [],
+        "warnings": [],
+        "notes": [
+          "T033 is an event contract outside the current EMIR OTC derivative taxonomy for this project."
+        ]
+      }
+    }
+  }
+]
